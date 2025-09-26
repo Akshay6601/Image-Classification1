@@ -6,7 +6,7 @@ import os
 print("TensorFlow version:", tf.__version__)
 
 #Loading Dataset of cats and dogs
-base_dir = r"C:\Users\Akshay\Desktop\Image CLassification\cats_and_dogs_filtered"  # Change the directory here!
+base_dir = r"..\cats_and_dogs_filtered" 
 train_dir = os.path.join(base_dir, "train")
 validation_dir = os.path.join(base_dir, "validation")
 
