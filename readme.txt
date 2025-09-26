@@ -14,4 +14,7 @@ Some necessary libraries that are needed to run this project are:-
 
 1: TensorFlow [Open cmd, type 'pip install tensorflow' and hit enter]
 
+
 2: Matplotlib [Open cmd, type 'pip install matplotlib' and hit enter]
+
+3: Scipy [Open cmd, type 'pip install scipy' and hit enter] 
