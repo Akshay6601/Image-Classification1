@@ -5,19 +5,18 @@ import os
 
 print("TensorFlow version:", tf.__version__)
 
-# 1. Load Dataset (Cats vs Dogs)
-# TensorFlow provides the dataset
+#Loading Dataset of cats and dogs
 base_dir = r"C:\Users\Akshay\Desktop\Image CLassification\cats_and_dogs_filtered"
 train_dir = os.path.join(base_dir, "train")
 validation_dir = os.path.join(base_dir, "validation")
 
-# 2. Data Preprocessing + Augmentation
+# Data Preprocessing and Augmentation
 IMG_SIZE = (150, 150)
 BATCH_SIZE = 32
 
 train_datagen = ImageDataGenerator(
-    rescale=1./255,          # normalize
-    rotation_range=40,       # data augmentation
+    rescale=1./255,          
+    rotation_range=40,       
     width_shift_range=0.2,
     height_shift_range=0.2,
     shear_range=0.2,
@@ -42,7 +41,7 @@ val_generator = val_datagen.flow_from_directory(
 )
 
 
-# 3. CNN Model Architecture
+# CNN Model Architecture
 model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(32, (3,3), activation='relu', input_shape=(150,150,3)),
     tf.keras.layers.MaxPooling2D(2,2),
@@ -59,7 +58,7 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(512, activation='relu'),
     tf.keras.layers.Dropout(0.5),
-    tf.keras.layers.Dense(1, activation='sigmoid')  # Binary classification
+    tf.keras.layers.Dense(1, activation='sigmoid')  
 ])
 
 model.compile(optimizer='adam',
@@ -69,7 +68,7 @@ model.compile(optimizer='adam',
 model.summary()
 
 
-# 4. Train Model
+# Training Model
 EPOCHS = 20
 history = model.fit(
     train_generator,
@@ -78,7 +77,7 @@ history = model.fit(
 )
 
 
-# 5. Accuracy & Loss Curves
+# Accuracy and Loss Curves
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
 loss = history.history['loss']
